@@ -1,26 +1,48 @@
 <a href=" ./index.php" title="index"> index</a>
 <br>
-
 <?php
 
+$capitales = array ("France"=>"Paris","Allemagne"=>"Berlin", "USA"=>"Washington","Italie"=>"Rome","Espagne"=>"Madrid"); 
 
-$txt1 = "engage le jeu que je le gagne";
+
+function majuscule_trie($param){
+   
+    foreach ($param as $key => $value) {
+        $key= mb_strtoupper($key, 'UTF-8');;
+        $a[$key] = $value ;
+
+    }
+    ksort($a);
+    return $a;
+}
 
 
-function text_pallin($param){
-    $a= strtr($param,"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ"
-    ,"aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn");
-    $special = array(" ", "!", ":", "?", ".", "/", "$", "&", "%", "'", ",");
-    $a = strtolower(str_replace($special,"",$a));
+function  afficherTableHTML($capitales){
+    $b = majuscule_trie($capitales);
   
-    $inverse = strrev($a);
-    if($a == $inverse){
-        echo 'La phrase "' . $param . ' " est un palindrome';
-    }else {
-        echo "La phrase :  $param  n'est pas un palindrome";
+?>
+<table >
+     <tr>
+    <th>Pays</th>
+    <th>Capital</th> 
+    <th>Lien wiki</th> 
+    </tr>
+<?php
+    foreach ($b as $key => $value) {
+       
+     echo "<tr>    <td> $key  </td>    <td> $value</td> <td><a href='https://fr.wikipedia.org/wiki/'target='_blank'>
+     lien </a> </td> </tr>";
+    } 
+?>
+</table>
+<style>
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
 }
-    return;
+</style>
+<?php 
 }
-
-text_pallin($txt1)
+afficherTableHTML($capitales);
 ?>

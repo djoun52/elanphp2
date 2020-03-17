@@ -4,10 +4,6 @@
 <?php
 
 
-$txt1 = "Notre formation DL commence aujourd'hui";
-$txt2 = "bonjour à tous";
-
-
 function convert($param){
     $s= $param*0.1524;
     $form = number_format($s, 2, ',', ' ');
@@ -15,8 +11,6 @@ function convert($param){
     return ;
 }
 
-convert(100);
-convert(1);
-convert(50);
+
 
 ?>
