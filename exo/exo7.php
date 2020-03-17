@@ -3,27 +3,19 @@
 
 <?php
 
-function cat_age($param){
-    if ($param >= 12){
-        echo "L’enfant qui a " . $param. " ans appartient à la catégorie « cadet »"; 
-    }elseif ($param <= 11){
-        echo "L’enfant qui a " . $param. " ans appartient à la catégorie « Minime »"; 
-    }elseif ($param <=9) {
-        echo "L’enfant qui a " . $param. " ans appartient à la catégorie « Pupille »"; 
-    }elseif ($param >= 6 && $param<=7) {
-        echo "L’enfant qui a " . $param. " ans appartient à la catégorie « poussin »"; 
-    }else {
-        echo "l'enfent est trop jeune pour rentrer dans une catégorie.";
+
+$elements = array("choix 1","choix2","choix 3");
+
+function genererCheckbox($param)
+{
+    echo "<form> ";
+
+    foreach ($param as $value) {
+        
+        echo " <input type='checkbox' /> <label for='$value'>$value</label><br />";
     }
-    echo "<br>";
+    echo "</form>";
     return;
 }
-
-cat_age(10);
-cat_age(20);
-cat_age(5);
-cat_age(6);
-cat_age(9);
-
-
+genererCheckbox($elements);
 ?>

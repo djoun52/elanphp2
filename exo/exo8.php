@@ -1,21 +1,18 @@
 
 <a href=" ./index.php" title="index"> index</a>
 <br>
-    <?php
-function table_multipli1 ($para){
-        for ($i=0; $i <= 10; $i++) {
-            echo $para .'x' . $i . '=' . $para * $i;
-            echo '<br>';
-        
-    }}
-        
-    function table_multipli2 ($para){
-        $i=0;
-        while ($i <= 10) {
-            echo $para .'x' . $i . '=' . $para * $i;
-            echo '<br>';
-            $i++;        
-        }}
 
-table_multipli1(2);
-table_multipli2(3);
+<?php
+
+$url= "http://my.mobirise.com/data/userpic/764.jpg" ;
+
+
+function repeterImage($param1, $param2)
+{
+    for ($i=0; $i < $param2 ; $i++) { 
+        echo "<img src='http://my.mobirise.com/data/userpic/764.jpg'> ";
+    }
+return ;
+}
+repeterImage($url,4);
+?>
