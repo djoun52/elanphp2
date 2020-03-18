@@ -21,32 +21,28 @@
         <div>
             <a href=" ./exo1.php" title="exo1">exo1 fait</a>
             <p>
-            Soit la phrase «Notre formation DL commence aujourd'hui».Ecrire  un  algorithme  permettant  de  compter  le  nombre  de  caractères  contenus  dans  cette  phrase (espaces inclus).
-            </p>
+            Créer une fonction personnalisée convertirMajRouge() permettant de transformer une chaîne de caractère passée en argument en majuscules et en rouge.             </p>
         </div>
         <hr>
 
         <div>
             <a href=" ./exo2.php" title="exo2">exo2 fait  </a>
             <p>
-            A partir de la phrase de l’exercice 1, écrire l’instruction permettant de compter le nombre de mots contenus dans celle-ci.           
-          </p>
+            Réaliser un algorithme permettant d’afficher le tableau HTML suivant (notez que le nom du pays s’affichera en majuscule et que le tableau est trié par ordre alphabétique du nom de pays) grâce à une fonction personnalisée.           </p>
         </div>
         <hr>
 
         <div>
             <a href=" ./exo3.php" title="exo3">exo3 fait</a>
             <p>
-            A partir de la phrase de l’exercice 1, écrire l’instruction permettant de remplacer le mot « aujourd’hui » par le mot « demain ». Afficher l’ancienne et la nouvelle phrase.      
-            </p>   
+            Afficher un lien hypertexte permettant d’accéder au site d’Elan Formation. Le lien devra s’ouvrir dans un nouvel onglet (_blank).            </p>   
         </div>
         <hr>
 
         <div>
             <a href=" ./exo4.php" title="exo4">exo4 fait</a>
             <p>
-            Ecrire un algorithme permettant de savoir si une phrase est palindrome.
-            </p>
+            A partir de l’exercice 2, ajouter une colonne supplémentaire dans le tableau HTML qui contiendra le lien hypertexte de la page Wikipédia de la capitale (le lien hypertexte devra s’ouvrir dans un nouvel onglet et le tableau sera trié par ordre alphabétique de la capitale).            </p>
         </div>
         <hr>
         <div>
@@ -86,11 +82,10 @@
         </div>
         <hr>
         <div>
-            <a href=" ./exo10.php" title="exo10">exo10 boucle for</a> 
-            <br>
-            <a href=" ./exo10bis.php" title="exo10bis">exo10bis intdiv</a>
+            <a href=" ./exo10.php" title="exo10">exo10</a> 
             <p>
-            A partir d’un montant à payer et d’une somme versée pour régler un achat, écrire l’algorithme qui affiche à un utilisateur un rendu de monnaie en nombre de billets de 10 € et 5 €, pièces de 2 € et 1 €.
+            A partir d’un mEn utilisant l’ensemble des fonctions personnalisées crées précédemment, créer un formulaire complet qui contient les informations suivantes : champs de texte avec nom, prénom, adresse e-mail, ville, sexe et une liste de choix parmi lesquels on pourra sélectionner un intitulé de formation : « Développeur Logiciel », « Designer web », « Intégrateur » ou « Chef de projet ». 
+            Le formulaire devra également comporter un bouton permettant de le soumettre à un traitement de validation (submit).ontant à payer et d’une somme versée pour régler un achat, écrire l’algorithme qui affiche à un utilisateur un rendu de monnaie en nombre de billets de 10 € et 5 €, pièces de 2 € et 1 €.
             </p>
         </div>
         <hr>

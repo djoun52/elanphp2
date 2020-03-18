@@ -12,7 +12,7 @@ function majuscule_trie($param){
         $a[$key] = $value ;
 
     }
-    ksort($a);
+    asort($a);
     return $a;
 }
 

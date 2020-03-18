@@ -4,18 +4,17 @@
 <?php
 
 
-$perso=[ "Mickaël" => "FRA", "Virgile" => "ESP", "Marie-Claire" => "ENG" ];
+$tableauValeurs=array(true,"texte",10,25.369,array("valeur1","valeur2")); 
+
 function salut($param){
-$langue= [ "FRA"=>"bonjour","ENG"=>"hello", "ESP"=>"hola" ];
-   foreach ($param as $key => $value) {
-       foreach ($langue as $key1 => $value1) {
-            if ($value == $key1) {
-                echo "$value1 $key <br>";
-            }
+    
+
+   foreach ($param as $value) {
+     var_dump($value);     
        }
-   }
+   
    return;
 }
 
-salut($perso)
+salut($tableauValeurs);
 ?>

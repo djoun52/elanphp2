@@ -2,14 +2,11 @@
 <br>
 
 <?php
-$arr= [ "Peugeot", "Renault", "BMW" , "Mercedes " ];
-
-echo "Il y a ". count($arr)  . " marques de voitures dans le tableau :";
+function formaterDateFr($param){
+    setlocale(LC_TIME, "fr_FR");
+    echo strftime("%A %d %B %G", strtotime($param));
+    return;
+}
+formaterDateFr("2018-02-23"); 
 ?>
-<ul>
-    <?php
-     foreach ($arr as $value) {
-        echo "<li> $value </li>";
-     }   
-    ?>
 </ul>
