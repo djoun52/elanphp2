@@ -12,6 +12,7 @@ function verifEmail($param){
     }
     return;
 }
+
 verifEmail($email1);
 verifEmail($email2);
 

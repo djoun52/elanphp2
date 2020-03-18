@@ -4,8 +4,6 @@
 
 
 
-echo "<a href='https://elan-formation.eu/'target='_blank'>
-Elan Formation
-</a>";
+echo "<a href='https://elan-formation.eu/'target='_blank'>Elan Formation</a>";
 
 ?>
