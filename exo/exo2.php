@@ -2,45 +2,52 @@
 <br>
 <?php
 
-$capitales = array ("France"=>"Paris","Allemagne"=>"Berlin","USA"=>"Washington","Italie"=>"Rome"); 
+$capitales = array("France" => "Paris", "Allemagne" => "Berlin", "USA" => "Washington", "Italie" => "Rome");
 
 
-function majuscule_trie($param){
-   
+function majuscule_trie($param)
+{
+
     foreach ($param as $key => $value) {
-        $key= mb_strtoupper($key, 'UTF-8');;
-        $a[$key] = $value ;
-
+        $key = mb_strtoupper($key, 'UTF-8');;
+        $a[$key] = $value;
     }
     ksort($a);
     return $a;
 }
 
 
-function  afficherTableHTML($capitales){
+function  afficherTableHTML($capitales)
+{
     $b = majuscule_trie($capitales);
-  
+
 ?>
-<table >
-     <tr>
-    <th>pays</th>
-    <th>capital</th> 
-    </tr>
+    <table>
+        <thead>
+            <tr>
+                <th>pays</th>
+                <th>capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($b as $key => $value) {
+
+                echo "<tr>    <td> $key  </td>    <td> $value</td> </tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+        }
+    </style>
 <?php
-    foreach ($b as $key => $value) {
-       
-     echo "<tr>    <td> $key  </td>    <td> $value</td> </tr>";
-    } 
-?>
-</table>
-<style>
-table,th,td{
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: left;
-}
-</style>
-<?php 
 }
 afficherTableHTML($capitales);
 ?>
