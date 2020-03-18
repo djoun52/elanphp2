@@ -2,7 +2,7 @@
 <br>
 
 <?php
-class voiture
+class Voiture
 {
     // Properties
     private $etat = "arreter";
@@ -13,59 +13,59 @@ class voiture
     private $nbPortes ;
   
 
-    function __construct($c_marque, $c_modele, $c_nbPortes)
+    public function __construct($c_marque, $c_modele, $c_nbPortes)
     {
         $this->marque = $c_marque;
         $this->modele = $c_modele;
         $this->date = $c_nbPortes ;
     }
     // Methods
-    function get_marque()
+    function getMarque()
     {
         return $this->marque;
     }
-    function set_marque($p_marque)
+    function setMarque($p_marque)
     {
         $this->marque = $p_marque;
     }
-    function get_modele()
+    function getModele()
     {
         return $this->modele;
     }
-    function set_modele($p_modele)
+    function setModele($p_modele)
     {
         $this->modele = $p_modele;
     }
-    function get_nbPortes ()
+    function getNbPortes ()
     {
         return $this->nbPortes ;
     }
-    function set_nbPortes ($p_nbPortes )
+    function setNbPortes ($p_nbPortes )
     {
         $this->nbPortes  = $p_nbPortes ;
     }
 
-    function get_etat()
+    function getEtat()
     {
         return $this->etat;
     }
-    function set_etat($p_etat)
+    function setEtat($p_etat)
     {
         $this->etat = $p_etat;
     }
-    function get_vitesse()
+    function getVitesse()
     {
         return $this->vitesse;
     }
-    function set_vitesse($p_vitesse)
+    function setVitesse($p_vitesse)
     {
         $this->vitesse = $p_vitesse;
     }
-    function add_vitesse($p_vitesse)
+    function addVitesse($p_vitesse)
     {
         $this->vitesse +=$p_vitesse;
     }
-    function less_vitesse($p_vitesse)
+    function lessVitesse($p_vitesse)
     {
         $this->vitesse -=$p_vitesse;
     }
@@ -74,10 +74,10 @@ class voiture
     public function id()//récupérer les info d'une voiture 
     {
          echo "<br> info <br> ************** <br>";
-         echo "nom et modéle de la voiture : " . $this->get_marque() . " " .$this->get_modele() ."<br>";
-         echo "Nombre de porte" . $this->get_nbPortes() ."<br>" ;
-         echo "Le véhicule " .$this->get_marque() . " est " . $this->get_etat() . "<br>";
-         echo "Sa vitesse actuel est actuellement de " . $this->get_vitesse() . "km/h <br>";
+         echo "nom et modéle de la voiture : " . $this->getMarque() . " " .$this->getModele() ."<br>";
+         echo "Nombre de porte" . $this->getNbPortes() ."<br>" ;
+         echo "Le véhicule " .$this->getMarque() . " est " . $this->getEtat() . "<br>";
+         echo "Sa vitesse actuel est actuellement de " . $this->getVitesse() . "km/h <br>";
         
     }
 
@@ -85,11 +85,11 @@ class voiture
     {
         if ($this->etat == "arreter") {
             $this->etat = "demarrer";
-            echo $this->get_marque() . " " . $this->get_modele() . " demarre";
+            echo $this->getMarque() . " " . $this->getModele() . " demarre";
             echo "<br>";
             return;
         } else {
-            echo $this->get_marque() . " " . $this->get_modele() . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
+            echo $this->getMarque() . " " . $this->getModele() . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
             echo "<br>";
             return;
         }
@@ -99,9 +99,9 @@ class voiture
     {
         if ($this->etat == "demarrer") {
             if ($this->vitesse < 100) {
-                $this->add_vitesse(50);
-                echo  $this->marque . " " . $this->get_modele() . " accelere, ";
-                echo $this->get_marque() . " " . $this->get_modele() .  " est maintenant a " . $this->get_vitesse() . "km/h";
+                $this->addVitesse(50);
+                echo  $this->marque . " " . $this->getModele() . " accelere, ";
+                echo $this->getMarque() . " " . $this->getModele() .  " est maintenant a " . $this->getVitesse() . "km/h";
                 echo "<br>";
                 return;
             } else {
@@ -120,9 +120,9 @@ class voiture
     {
         if ($this->etat == "demarrer") {
             if ($this->vitesse > 0) {
-                $this->less_vitesse(50);
-                echo  $this->marque . " " . $this->get_modele() . " decelere";
-                echo $this->get_modele() .  " est maintenant a " . $this->get_vitesse() . "km/h";
+                $this->lessVitesse(50);
+                echo  $this->marque . " " . $this->getModele() . " decelere";
+                echo $this->getModele() .  " est maintenant a " . $this->getVitesse() . "km/h";
                 echo "<br>";
                 return;
             } else {
@@ -141,25 +141,25 @@ class voiture
     {
         if ($this->vitesse === 0) {
             if ($this->etat == "demarrer") {
-                $this->set_etat("arreter");
-                echo $this->get_marque() . " " . $this->get_modele() . "eteint son moteur.";
+                $this->setEtat("arreter");
+                echo $this->getMarque() . " " . $this->getModele() . "eteint son moteur.";
                 echo "<br>";
                 return;
             } else {
-                echo $this->get_marque() . " " . $this->get_modele() . "est déja éteint";
+                echo $this->getMarque() . " " . $this->getModele() . "est déja éteint";
                 echo "<br>";
                 return;
             }
         } else {
-            echo $this->get_marque() . " " . $this->get_modele() . "roule encore";
+            echo $this->getMarque() . " " . $this->getModele() . "roule encore";
             echo "<br>";
             return;
         }
     }
 }
 echo '<br>';
-$a = new voiture('Peugeot', '308', 5);
-$b = new voiture("Citroën","C4",3 );
+$a = new Voiture('Peugeot', '308', 5);
+$b = new Voiture("Citroën","C4",3 );
 
 $a->demarrer();
 $a->arreter();
