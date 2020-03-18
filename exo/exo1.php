@@ -11,7 +11,7 @@ function convertirMajRouge($texte){
         $a =  mb_strtoupper($texte, 'UTF-8');
         echo '<font color="#FF0000">'. $a .'</font>';
     }
-    return;
+    return ;
 }
 convertirMajRouge($txt1);
 
