@@ -5,19 +5,19 @@
 class Voiture
 {
     // Properties
-    private $etat = "arreter";
+    private $etat = FALSE;
     private $vitesse = 0;
     
     private $marque;
     private $modele;
-    private $nbPortes ;
+
   
 
-    public function __construct($c_marque, $c_modele, $c_nbPortes)
+    public function __construct($c_marque, $c_modele)
     {
         $this->marque = $c_marque;
         $this->modele = $c_modele;
-        $this->date = $c_nbPortes ;
+
     }
     // Methods
     function getMarque()
@@ -28,6 +28,7 @@ class Voiture
     {
         $this->marque = $p_marque;
     }
+
     function getModele()
     {
         return $this->modele;
@@ -36,15 +37,9 @@ class Voiture
     {
         $this->modele = $p_modele;
     }
-    function getNbPortes ()
-    {
-        return $this->nbPortes ;
-    }
-    function setNbPortes ($p_nbPortes )
-    {
-        $this->nbPortes  = $p_nbPortes ;
-    }
 
+  
+    
     function getEtat()
     {
         return $this->etat;
@@ -83,8 +78,8 @@ class Voiture
 
     public function demarrer()// démarrer la voiture 
     {
-        if ($this->etat == "arreter") {
-            $this->etat = "demarrer";
+        if ($this->etat == FALSE) {
+            $this->etat = TRUE;
             echo $this->getMarque() . " " . $this->getModele() . " demarre";
             echo "<br>";
             return;
@@ -97,7 +92,7 @@ class Voiture
 
     public function accelerer() // accelerer la voiture 
     {
-        if ($this->etat == "demarrer") {
+        if ($this->etat == TRUE) {
             if ($this->vitesse < 100) {
                 $this->addVitesse(50);
                 echo  $this->marque . " " . $this->getModele() . " accelere, ";
@@ -118,7 +113,7 @@ class Voiture
 
     public function decelerer()// fréner la voiture 
     {
-        if ($this->etat == "demarrer") {
+        if ($this->etat == TRUE) {
             if ($this->vitesse > 0) {
                 $this->lessVitesse(50);
                 echo  $this->marque . " " . $this->getModele() . " decelere";
@@ -140,8 +135,8 @@ class Voiture
     public function arreter()// arreter la voiture 
     {
         if ($this->vitesse === 0) {
-            if ($this->etat == "demarrer") {
-                $this->setEtat("arreter");
+            if ($this->etat == TRUE) {
+                $this->setEtat(FALSE);
                 echo $this->getMarque() . " " . $this->getModele() . "eteint son moteur.";
                 echo "<br>";
                 return;
@@ -157,9 +152,34 @@ class Voiture
         }
     }
 }
+
+
+class VoitureElec extends Voiture 
+{
+    // Properties
+    private $autonomie;
+
+    public function __construct($c_marque, $c_modele, $c_autonomie )
+    {
+        $this->marque = $c_marque;
+        $this->modele = $c_modele;
+        $this->autonomie = $c_autonomie ;
+    }
+
+    function getAutonomie()
+    {
+        return $this->autonomie;
+    }
+    function setAutonomie($p_autonomie)
+    {
+        $this->autonomie = $p_autonomie;
+    }
+
+}
+
 echo '<br>';
-$a = new Voiture('Peugeot', '308', 5);
-$b = new Voiture("Citroën","C4",3 );
+$v1 = new Voiture("Peugeot","408"); 
+$ve1 = new VoitureElec("BMW","I3",100); 
 
 $a->demarrer();
 $a->arreter();

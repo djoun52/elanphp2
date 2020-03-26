@@ -4,15 +4,20 @@
 <?php
 
 
-$elements = array("choix 1","choix2","choix 3");
+$elements = array("choix 1" => 1,"choix2" => 0,"choix 3" => 0);
 
 function genererCheckbox($param)
 {
     echo "<form> ";
 
-    foreach ($param as $value) {
+    foreach ($param as $key => $value) {
+        if ( $value == 1){
+            echo " <input type='checkbox' checked/> <label for='$key'>$key</label><br />";
+        }elseif ($value == 0) {
+            echo " <input type='checkbox' /> <label for='$key'>$key</label><br />";
+          
+        }
         
-        echo " <input type='checkbox' /> <label for='$value'>$value</label><br />";
     }
     echo "</form>";
     return;

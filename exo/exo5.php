@@ -4,7 +4,7 @@
 <?php
 
 
-$nomsInput = array("Nom","Prénom","Ville");
+$nomsInput = ["Nom","Prénom","Ville"];
 
 function afficherInput($param)
 {

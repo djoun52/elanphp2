@@ -2,24 +2,18 @@
 <br>
 <?php
 
-$capitales = array("France" => "Paris", "Allemagne" => "Berlin", "USA" => "Washington", "Italie" => "Rome");
+$capitales = ["France" => "Paris", "Allemagne" => "Berlin", "USA" => "Washington", "Italie" => "Rome"];
 
 
-function majuscule_trie($param)
-{
-
-    foreach ($param as $key => $value) {
-        $key = mb_strtoupper($key, 'UTF-8');;
-        $a[$key] = $value;
-    }
-    ksort($a);
-    return $a;
-}
 
 
 function  afficherTableHTML($capitales)
 {
-    $b = majuscule_trie($capitales);
+    foreach ($capitales as $key => $value) {
+        $key = mb_strtoupper($key, 'UTF-8');;
+        $a[$key] = $value;
+    }
+    ksort($a);
 
 ?>
     <table>
@@ -31,13 +25,14 @@ function  afficherTableHTML($capitales)
         </thead>
         <tbody>
             <?php
-            foreach ($b as $key => $value) {
+            foreach ($a as $key => $value) {
 
                 echo "<tr>    <td> $key  </td>    <td> $value</td> </tr>";
             }
             ?>
         </tbody>
     </table>
+
     <style>
         table,
         th,

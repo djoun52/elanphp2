@@ -9,10 +9,9 @@ $url= "http://my.mobirise.com/data/userpic/764.jpg" ;
 
 function repeterImage($param1, $param2)
 {
-    for ($i=0; $i < $param2 ; $i++) { 
-        echo "<img src='http://my.mobirise.com/data/userpic/764.jpg'> ";
-    }
-return ;
+
+        echo str_repeat ("<img src='$param1'> ", $param2);
+    
 }
 repeterImage($url,4);
 ?>
