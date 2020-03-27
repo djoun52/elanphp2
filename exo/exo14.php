@@ -53,7 +53,7 @@ class Voiture
 
         $s="";
         $s.=  "<br> info <br> ************** <br>";
-        $s.=  "nom et modéle de la voiture : " . $this->__toString() ."<br>";
+        $s.=  "nom et modéle de la voiture :  " . $this ."<br>";
 
         return  $s;
     }

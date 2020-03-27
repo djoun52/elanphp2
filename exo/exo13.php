@@ -86,9 +86,9 @@ class Voiture
             $etatv="démarer";}
         $s="";
         $s.= "<br> info <br> ************** <br>";
-        $s.= "nom et modéle de la voiture : " . $this->__toString() ."<br>";
+        $s.= "nom et modéle de la voiture : " . $this ."<br>";
         $s.= "Nombre de porte" . $this->getNbPortes() ."<br>" ;
-        $s.= "Le véhicule " .$this->__toString() . " est  $etatv  <br>";
+        $s.= "Le véhicule " .$this . " est  $etatv  <br>";
         $s.= "Sa vitesse actuel est actuellement de " . $this->getVitesse() . "km/h <br><br>";
         return  $s;
     }
@@ -98,10 +98,10 @@ class Voiture
         $s="";
         if ($this->etat == FALSE) {
             $this->etat = TRUE;
-            $s.= $this->__toString() . " demarre";
+            $s.= $this. " demarre";
             $s.= "<br>";
         } else {
-            $s.= $this->__toString() . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
+            $s.= $this . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
             $s.= "<br>";
 
         }
@@ -114,12 +114,12 @@ class Voiture
         if ($this->etat == TRUE) {
             if ($this->vitesse < 100) {
                 $this->addVitesse(50);
-                $s.=  $this->__toString() . " accelere, ";
-                $s.= $this->__toString() .  " est maintenant a " . $this->getVitesse() . "km/h";
+                $s.=  $this . " accelere, ";
+                $s.= $this .  " est maintenant a " . $this . "km/h";
                 $s.= "<br>";
 
             } else {
-                $s.= $this->__toString() . " ne peux pas acélerer, elle est déjà a fond ";
+                $s.= $this->modele . " ne peux pas acélerer, elle est déjà a fond ";
                 $s.= "<br>";
 
             }
@@ -137,12 +137,12 @@ class Voiture
         if ($this->etat == TRUE) {
             if ($this->vitesse > 0) {
                 $this->lessVitesse(50);
-                $s.=  $this->__toString() . " decelere";
-                $s.= $this->__toString() .  " est maintenant a " . $this->getVitesse() . "km/h";
+                $s.=  $this . " decelere";
+                $s.= $this .  " est maintenant a " . $this->getVitesse() . "km/h";
                 $s.= "<br>";
 
             } else {
-                $s.= $this->__toString() . " ne peux pas decelerer, elle est a arret ";
+                $s.= $this->modele . " ne peux pas decelerer, elle est a arret ";
                 $s.= "<br>";
             }
         } else {
@@ -158,14 +158,14 @@ class Voiture
         if ($this->vitesse === 0) {
             if ($this->etat == TRUE) {
                 $this->setEtat(FALSE);
-                $s.= $this->__toString() . "eteint son moteur.";
+                $s.= $this. "eteint son moteur.";
                 $s.= "<br>";
             } else {
-                $s.= $this->__toString() . "est déja éteint";
+                $s.= $this . "est déja éteint";
                 $s.= "<br>";
             }
         } else {
-            $s.= $this->__toString() . "roule encore";
+            $s.= $this. "roule encore";
             $s.= "<br>";
         }
         return  $s;
