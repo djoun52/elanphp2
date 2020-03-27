@@ -8,12 +8,12 @@ $tableauValeurs=array(true,"texte",10,25.369,array("valeur1","valeur2"));
 
 function salut($param){
     
-
+  $s="";
    foreach ($param as $value) {
-     var_dump($value);     
+    $s.=var_dump($value);     
        }
-
+return  $s;
 }
 
-salut($tableauValeurs);
+echo salut($tableauValeurs);
 ?>

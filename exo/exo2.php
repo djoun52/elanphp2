@@ -14,22 +14,21 @@ function  afficherTableHTML($capitales)
         $a[$key] = $value;
     }
     ksort($a);
-
-?>
-    <table>
+ $s ="";
+ $s = "<table>
         <thead>
             <tr>
                 <th>pays</th>
                 <th>capital</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
+        <tbody>";
+
             foreach ($a as $key => $value) {
 
-                echo "<tr>    <td> $key  </td>    <td> $value</td> </tr>";
+                $s.= "<tr>    <td> $key  </td>    <td> $value</td> </tr>";
             }
-            ?>
+            $s.="
         </tbody>
     </table>
 
@@ -41,8 +40,8 @@ function  afficherTableHTML($capitales)
             border-collapse: collapse;
             text-align: left;
         }
-    </style>
-<?php
+    </style>";
+return $s;
 }
-afficherTableHTML($capitales);
+echo afficherTableHTML($capitales);
 ?>

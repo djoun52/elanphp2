@@ -7,14 +7,16 @@ $elements = array("Monsieur","Madame","Mademoiselle");
 
 function alimenterListeDeroulante($param)
 {
-    echo "<form> <select> ";
+    $s="";
+
+    $s.= "<form> <select> ";
 
     foreach ($param as $value) {
         
-        echo "<option value='$value'>'$value'</option>";
+        $s.= "<option value='$value'>'$value'</option>";
     }
-    echo "</select></form>";
-
+    $s.= "</select></form>";
+    return $s;
 }
-alimenterListeDeroulante($elements);
+echo alimenterListeDeroulante($elements);
 ?>

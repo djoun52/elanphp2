@@ -38,6 +38,10 @@ class Voiture
         $this->modele = $p_modele;
     }
 
+    public function __toString()
+    {
+        return $this->getMarque() . " " .$this->getModele();
+    }
   
     function getNbPortes ()
     {
@@ -75,107 +79,122 @@ class Voiture
 
 
     public function id()//récupérer les info d'une voiture 
-    {
-         echo "<br> info <br> ************** <br>";
-         echo "nom et modéle de la voiture : " . $this->getMarque() . " " .$this->getModele() ."<br>";
-         echo "Nombre de porte" . $this->getNbPortes() ."<br>" ;
-         echo "Le véhicule " .$this->getMarque() . " est " . $this->getEtat() . "<br>";
-         echo "Sa vitesse actuel est actuellement de " . $this->getVitesse() . "km/h <br>";
-        
+    {   
+        if ($this->etat == FALSE){
+            $etatv="à l'arret";
+        }else {
+            $etatv="démarer";}
+        $s="";
+        $s.= "<br> info <br> ************** <br>";
+        $s.= "nom et modéle de la voiture : " . $this->__toString() ."<br>";
+        $s.= "Nombre de porte" . $this->getNbPortes() ."<br>" ;
+        $s.= "Le véhicule " .$this->__toString() . " est  $etatv  <br>";
+        $s.= "Sa vitesse actuel est actuellement de " . $this->getVitesse() . "km/h <br><br>";
+        return  $s;
     }
 
     public function demarrer()// démarrer la voiture 
     {
+        $s="";
         if ($this->etat == FALSE) {
             $this->etat = TRUE;
-            echo $this->getMarque() . " " . $this->getModele() . " demarre";
-            echo "<br>";
+            $s.= $this->__toString() . " demarre";
+            $s.= "<br>";
         } else {
-            echo $this->getMarque() . " " . $this->getModele() . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
-            echo "<br>";
+            $s.= $this->__toString() . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
+            $s.= "<br>";
 
         }
+        return  $s;
     }
 
     public function accelerer() // accelerer la voiture 
     {
+        $s="";
         if ($this->etat == TRUE) {
             if ($this->vitesse < 100) {
                 $this->addVitesse(50);
-                echo  $this->marque . " " . $this->getModele() . " accelere, ";
-                echo $this->getMarque() . " " . $this->getModele() .  " est maintenant a " . $this->getVitesse() . "km/h";
-                echo "<br>";
+                $s.=  $this->__toString() . " accelere, ";
+                $s.= $this->__toString() .  " est maintenant a " . $this->getVitesse() . "km/h";
+                $s.= "<br>";
 
             } else {
-                echo $this->modele . " ne peux pas acélerer, elle est déjà a fond ";
-                echo "<br>";
+                $s.= $this->__toString() . " ne peux pas acélerer, elle est déjà a fond ";
+                $s.= "<br>";
 
             }
         } else {
-            echo "Allume déjà le moteur !";
-            echo "<br>";
+            $s.= "Allume déjà le moteur !";
+            $s.= "<br>";
 
         }
+        return  $s;
     }
 
     public function decelerer()// fréner la voiture 
     {
+        $s="";
         if ($this->etat == TRUE) {
             if ($this->vitesse > 0) {
                 $this->lessVitesse(50);
-                echo  $this->marque . " " . $this->getModele() . " decelere";
-                echo $this->getModele() .  " est maintenant a " . $this->getVitesse() . "km/h";
-                echo "<br>";
+                $s.=  $this->__toString() . " decelere";
+                $s.= $this->__toString() .  " est maintenant a " . $this->getVitesse() . "km/h";
+                $s.= "<br>";
 
             } else {
-                echo $this->modele . " ne peux pas decelerer, elle est a arret ";
-                echo "<br>";
+                $s.= $this->__toString() . " ne peux pas decelerer, elle est a arret ";
+                $s.= "<br>";
             }
         } else {
-            echo "Allume déjà le moteur !";
-            echo "<br>";
+            $s.= "Allume déjà le moteur !";
+            $s.= "<br>";
         }
+        return  $s;
     }
 
     public function arreter()// arreter la voiture 
     {
+        $s="";
         if ($this->vitesse === 0) {
             if ($this->etat == TRUE) {
                 $this->setEtat(FALSE);
-                echo $this->getMarque() . " " . $this->getModele() . "eteint son moteur.";
-                echo "<br>";
+                $s.= $this->__toString() . "eteint son moteur.";
+                $s.= "<br>";
             } else {
-                echo $this->getMarque() . " " . $this->getModele() . "est déja éteint";
-                echo "<br>";
+                $s.= $this->__toString() . "est déja éteint";
+                $s.= "<br>";
             }
         } else {
-            echo $this->getMarque() . " " . $this->getModele() . "roule encore";
-            echo "<br>";
+            $s.= $this->__toString() . "roule encore";
+            $s.= "<br>";
         }
+        return  $s;
     }
+    
 }
 echo '<br>';
 $a = new Voiture('Peugeot', '308', 5);
 $b = new Voiture("Citroën","C4",3 );
 
-$a->demarrer();
-$a->arreter();
-$a->demarrer();
-$a->decelerer();
-$a->arreter();
-$a->decelerer();
-$a->demarrer();
-$a->accelerer();
-$a->accelerer();
-$a->accelerer();
-$a->decelerer();
-$a->decelerer();
-$a->decelerer();
+echo $a->demarrer();
+echo $a->arreter();
+echo $a->demarrer();
+echo $a->decelerer();
+echo $a->arreter();
+echo $a->decelerer();
+echo $a->demarrer();
+echo $a->accelerer();
+echo $a->accelerer();
+echo $a->accelerer();
+echo $a->decelerer();
+echo $a->decelerer();
+echo $a->decelerer();
 
 
-$b->id();
-$b->demarrer();
-$b->id();
-$b->accelerer();
-$b->id();
+echo $b->id();
+echo $b->demarrer();
+echo$b->id();
+echo $b->accelerer();
+echo $b->id();
+echo $a->id();
 ?>

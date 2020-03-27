@@ -7,26 +7,30 @@
     $elements = array(" Développeur Logiciel ","Designer web "," Intégrateur » ou « Chef de projet ");
 
     function afficherInput($param){
+        $s="";
         foreach ($param as $value) {
-            echo "<label for='$value'>$value:</label><br>";
-            echo "<input type='text' id='$value' name='$value'><br>";
+            $s.= "<label for='$value'>$value:</label><br>";
+            $s.= "<input type='text' id='$value' name='$value'><br>";
         }
+        return $s;
     }
     function afficherChoix($param){
+               $s="";
         foreach ($param as $value) {
-            echo "<input type='radio' name='formation' value='$value' id='$value'/> <label for='$value'>$value</label><br />";
+            $s.= "<input type='radio' name='formation' value='$value' id='$value'/> <label for='$value'>$value</label><br />";
         }
        
+        return $s;
     }
     function afficherFormulaire($param1 , $param2)
     {
-
-        echo "<form>";
-        afficherInput($param1);
-        afficherChoix($param2);
-        echo "<input type='submit' value='Submit'> </form>";
-        
+        $s="";
+        $s.= "<form>";
+        $s.=afficherInput($param1);
+        $s.=afficherChoix($param2);
+        $s.= "<input type='submit' value='Submit'> </form>";
+        return $s;
     }
-    afficherFormulaire($nomsInput ,$elements);
+    echo afficherFormulaire($nomsInput ,$elements);
 
     ?>

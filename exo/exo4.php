@@ -15,8 +15,8 @@ function  afficherTableHTML($param)
     }
     asort($a);
     
-
-?>
+$s="";
+$s.="
     <table>
         <thead>
             <tr>
@@ -25,14 +25,13 @@ function  afficherTableHTML($param)
                 <th>Lien wiki</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
+        <tbody>";
             foreach ($a as $key => $value) {
 
-                echo "<tr>    <td> $key  </td>    <td> $value</td> <td><a href='https://fr.wikipedia.org/wiki/'target='_blank'>
+                $s.= "<tr>    <td> $key  </td>    <td> $value</td> <td><a href='https://fr.wikipedia.org/wiki/'target='_blank'>
      lien </a> </td> </tr>";
             }
-            ?>
+            $s.="
         </tbody>
     </table>
     <style>
@@ -43,8 +42,8 @@ function  afficherTableHTML($param)
             border-collapse: collapse;
             text-align: left;
         }
-    </style>
-<?php
+    </style>";
+return $s;
 }
-afficherTableHTML($capitales);
+echo afficherTableHTML($capitales);
 ?>

@@ -8,13 +8,15 @@ $elements = array("Monsieur","Madame","Mademoiselle");
 
 function alimenterListeDeroulante($param)
 {
-    echo "<form> <p>";
+    $s="";
+    $s.= "<form> <p>";
 
     foreach ($param as $value) {
         
-        echo "<input type='radio' name='genre' value='$value' id='$value'/> <label for='$value'>$value</label><br />";
+        $s.= "<input type='radio' name='genre' value='$value' id='$value'/> <label for='$value'>$value</label><br />";
     }
-    echo "</p> </form>";
+    $s.="</p> </form>";
+    return $s;
 }
-alimenterListeDeroulante($elements);
+echo alimenterListeDeroulante($elements);
 ?>

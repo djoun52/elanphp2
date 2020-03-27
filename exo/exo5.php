@@ -8,17 +8,15 @@ $nomsInput = ["Nom","Prénom","Ville"];
 
 function afficherInput($param)
 {
-    echo "<form>";
+    $s="";
+$s.="<form>";
     foreach ($param as $value) {
-        // echo "<label for='$value'>$value:</label><br>";
-        // echo "<input type='text' id='$value' name='$value'><br>";
-        ?> 
-        <label for=' <?php echo $value ?>'> <?php echo $value ?>:</label><br>
-        <input type='text' id='<?php echo $value ?>' name='<?php echo $value ?>'><br>
-        <?php
+        $s.="<label for='$value'>$value:</label><br>";
+        $s.="<input type='text' id='$value' name='$value'><br>";
     }
-    echo "</form>";
+    $s.="</form>";
+    return $s;
 }
-afficherInput($nomsInput);
+echo afficherInput($nomsInput);
 
 ?>
