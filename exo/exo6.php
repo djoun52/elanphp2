@@ -14,7 +14,7 @@ function alimenterListeDeroulante($param)
         echo "<option value='$value'>'$value'</option>";
     }
     echo "</select></form>";
-    return;
+
 }
 alimenterListeDeroulante($elements);
 ?>

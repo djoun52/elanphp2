@@ -18,7 +18,6 @@ function afficherInput($param)
         <?php
     }
     echo "</form>";
-    return;
 }
 afficherInput($nomsInput);
 

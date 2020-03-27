@@ -20,7 +20,7 @@ function genererCheckbox($param)
         
     }
     echo "</form>";
-    return;
+
 }
 genererCheckbox($elements);
 ?>
