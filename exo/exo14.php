@@ -82,11 +82,9 @@ class Voiture
             $this->etat = TRUE;
             echo $this->getMarque() . " " . $this->getModele() . " demarre";
             echo "<br>";
-            return;
         } else {
             echo $this->getMarque() . " " . $this->getModele() . " ne peux pas démarrer elle est déjà entrain de faire autre chose.";
             echo "<br>";
-            return;
         }
     }
 
@@ -98,16 +96,13 @@ class Voiture
                 echo  $this->marque . " " . $this->getModele() . " accelere, ";
                 echo $this->getMarque() . " " . $this->getModele() .  " est maintenant a " . $this->getVitesse() . "km/h";
                 echo "<br>";
-                return;
             } else {
                 echo $this->modele . " ne peux pas acélerer, elle est déjà a fond ";
                 echo "<br>";
-                return;
             }
         } else {
             echo "Allume déjà le moteur !";
             echo "<br>";
-            return;
         }
     }
 
@@ -119,16 +114,13 @@ class Voiture
                 echo  $this->marque . " " . $this->getModele() . " decelere";
                 echo $this->getModele() .  " est maintenant a " . $this->getVitesse() . "km/h";
                 echo "<br>";
-                return;
             } else {
                 echo $this->modele . " ne peux pas decelerer, elle est a arret ";
                 echo "<br>";
-                return;
             }
         } else {
             echo "Allume déjà le moteur !";
             echo "<br>";
-            return;
         }
     }
 
@@ -139,16 +131,13 @@ class Voiture
                 $this->setEtat(FALSE);
                 echo $this->getMarque() . " " . $this->getModele() . "eteint son moteur.";
                 echo "<br>";
-                return;
             } else {
                 echo $this->getMarque() . " " . $this->getModele() . "est déja éteint";
                 echo "<br>";
-                return;
             }
         } else {
             echo $this->getMarque() . " " . $this->getModele() . "roule encore";
             echo "<br>";
-            return;
         }
     }
 }

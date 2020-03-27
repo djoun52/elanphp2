@@ -6,14 +6,14 @@ $email2 ="contact@elan";
 
 function verifEmail($param){
     if (filter_var($param, FILTER_VALIDATE_EMAIL)){
-        echo "L’adresse $param est une adresse e-mail valide <br> ";
+        $s= "L’adresse $param est une adresse e-mail valide <br> ";
     }else {
-        echo "L’adresse $param est une adresse e-mail invalide <br>";
+        $s= "L’adresse $param est une adresse e-mail invalide <br>";
     }
-    return;
+    return $s;
 }
 
-verifEmail($email1);
-verifEmail($email2);
+echo verifEmail($email1);
+echo verifEmail($email2);
 
     ?>

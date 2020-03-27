@@ -15,7 +15,6 @@ function alimenterListeDeroulante($param)
         echo "<input type='radio' name='genre' value='$value' id='$value'/> <label for='$value'>$value</label><br />";
     }
     echo "</p> </form>";
-    return;
 }
 alimenterListeDeroulante($elements);
 ?>

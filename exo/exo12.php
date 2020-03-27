@@ -12,8 +12,7 @@ function salut($param){
    foreach ($param as $value) {
      var_dump($value);     
        }
-   
-   return;
+
 }
 
 salut($tableauValeurs);
